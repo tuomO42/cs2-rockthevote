@@ -4,6 +4,8 @@ using CounterStrikeSharp.API.Modules.Cvars;
 using CounterStrikeSharp.API.Modules.Timers;
 using cs2_rockthevote.Core;
 using Timer = CounterStrikeSharp.API.Modules.Timers.Timer;
+using CounterStrikeSharp.API.Modules.Commands;
+using CounterStrikeSharp.API.Core.Attributes.Registration;
 
 namespace cs2_rockthevote
 {
@@ -111,6 +113,16 @@ namespace cs2_rockthevote
         public void OnConfigParsed(Config config)
         {
             _config = config.EndOfMapVote;
+        }
+        [ConsoleCommand("custom_command", "This is an example command description")]
+        public void OnCommand(CCSPlayerController? player, CommandInfo command)
+        {
+            if (player == null) {
+                StartVote();
+                return;
+            }
+
+            Console.WriteLine("This command does not exist :)");
         }
     }
 }

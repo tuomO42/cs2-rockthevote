@@ -173,7 +173,6 @@ namespace cs2_rockthevote
             }
             return array;
         }
-
         public void StartVote(IEndOfMapConfig config)
         {
             Votes.Clear();
